@@ -1,7 +1,28 @@
-$black: black;
-
-
+@import '_variables.scss';
+@import '_settings.scss';
+@import '_mixins.scss';
+svg{
+    width: 64px;
+    height: 64px;
+}
 
 body{
-    background-color: $black;
+    background-color: $bg-color;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: green;
+}
+.app-logo{
+    svg{
+        fill: white;
+        width: 64px;
+        height: 64px;
+    }
+}
+
+#Layer_1{
+    fill: white;
 }

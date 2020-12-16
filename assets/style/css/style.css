@@ -1,2 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html {
+  scroll-behavior: smooth; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  line-height: normal;
+  color: #fff; }
+
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 576px) {
+    .container {
+      width: 550px; } }
+  @media only screen and (min-width: 768px) {
+    .container {
+      width: 750px; } }
+  @media only screen and (min-width: 992px) {
+    .container {
+      width: 970px; } }
+  @media only screen and (min-width: 1366px) {
+    .container {
+      width: 1170px; } }
+  @media only screen and (min-width: 1600px) {
+    .container {
+      width: 1250px; } }
+
+svg {
+  width: 64px;
+  height: 64px; }
+
 body {
-  background-color: black; }
+  background-color: #202020; }
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: green; }
+
+.app-logo svg {
+  fill: white;
+  width: 64px;
+  height: 64px; }
+
+#Layer_1 {
+  fill: white; }

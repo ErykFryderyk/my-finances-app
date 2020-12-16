@@ -1,0 +1,53 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    line-height: normal;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include bp(phone) {
+        width: 550px;
+    }
+
+    @include bp(small) {
+        width: 750px;
+    }
+
+    @include bp(medium) {
+        width: 970px;
+    }
+
+    @include bp(desktop) {
+        width: 1170px;
+    }
+
+    @include bp(large) {
+        width: 1250px;
+    }
+}
