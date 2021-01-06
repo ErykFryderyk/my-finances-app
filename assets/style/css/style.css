@@ -92,13 +92,14 @@ body {
     height: 50px;
     align-items: center; }
   .expenses-bar__icon {
-    margin: 0 5px;
-    transform: rotate(-90deg); }
+    margin: 0 5px; }
     .expenses-bar__icon svg {
       width: 10px;
       height: 10px;
       fill: white;
       transition: transform .5s ease; }
+    .expenses-bar__icon--hide svg {
+      transform: rotate(-90deg); }
   .expenses-bar__header-icon svg {
     width: 30px;
     height: 30px;
@@ -106,7 +107,8 @@ body {
     margin: 0 5px; }
   .expenses-bar__title {
     font-size: 16px;
-    margin-left: 5px; }
+    margin-left: 5px;
+    color: white; }
   .expenses-bar__price {
     color: white;
     margin: 0 5px 0 auto; }
@@ -122,12 +124,6 @@ body {
       height: 0;
       display: none;
       transition: transform .5s ease; }
-
-.bar__icon svg {
-  width: 35px;
-  height: 35px;
-  fill: white;
-  margin: 0 5px; }
 
 .nav-bar {
   background-color: #b8b8b8;
