@@ -97,9 +97,10 @@ body {
       width: 10px;
       height: 10px;
       fill: white;
-      transition: transform .5s ease; }
-    .expenses-bar__icon--hide svg {
+      transition: transform .5s ease;
       transform: rotate(-90deg); }
+    .expenses-bar__icon--hide svg {
+      transform: rotate(0deg); }
   .expenses-bar__header-icon svg {
     width: 30px;
     height: 30px;
@@ -121,19 +122,23 @@ body {
       margin: 5px 0;
       padding: 5px; }
     .expenses-bar__list--hide {
+      transform: scale(1, 0);
       height: 0;
       display: none;
+      transform-origin: top;
       transition: transform .5s ease; }
 
 .nav-bar {
   background-color: #b8b8b8;
   position: fixed;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 15px; }
+  padding: 5px;
+  z-index: 999; }
   .nav-bar input {
     margin-top: 5px;
     border: none;
@@ -142,3 +147,45 @@ body {
     padding: 5px 2px 1px 2px;
     font-size: 19px;
     color: white; }
+  .nav-bar__payment-input {
+    width: 40px;
+    height: 40px; }
+    .nav-bar__payment-input button {
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+      color: white;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: 1; }
+      .nav-bar__payment-input button:hover {
+        background-color: black; }
+      .nav-bar__payment-input button:active {
+        background-color: green; }
+  .nav-bar__add-new-expenses {
+    width: 50px;
+    height: 50px; }
+    .nav-bar__add-new-expenses button {
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      font-size: 48px;
+      line-height: 1; }
+      .nav-bar__add-new-expenses button:hover {
+        background-color: black; }
+      .nav-bar__add-new-expenses button:active {
+        background-color: green; }
+
+.modal {
+  background-color: pink;
+  position: fixed;
+  top: 100%;
+  transition: transform .5s ease; }
+  .modal--active {
+    transform: translateY(-200px); }
