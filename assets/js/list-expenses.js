@@ -1,25 +1,28 @@
 export class ExpensesList {
 
     constructor(parentEl){
-        this.parentEl = parentEl
+        this.parentEl = parentEl;
+        this.counter = 1;
     }
 
     createListElements(){
         const ul = document.createElement('ul');
         const li = document.createElement('li');
         const h3 = document.createElement('h3');
+        const span = document.createElement('span');
 
-        h3.innerHTML = 'To jest element listy';
-        
+        span.textContent = '200 zł';
+
+
+        h3.innerHTML = `${this.counter}. Element listy `;
+        this.counter++;
+        h3.appendChild(span);  
 
         li.appendChild(h3);
         ul.appendChild(li);
 
-        this.parentEl.classList.add('xD');
+        this.parentEl.classList.add('expenses-bar__list--hide');
         this.parentEl.appendChild(ul);
-        // this.elem.appendChild(ul);
-        console.log(this.parentEl);
-        console.log(this.elem);
     }
 };
 
