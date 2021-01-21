@@ -5,22 +5,35 @@ import { NavigationBar } from './navigationBar.js';
 class App {
     constructor({
         navBar,
+        inputPayment,
         payment,
         expensesBar,
         expensesBarList,
         modal,
         addButton,
+        walletValue,
     }){
         this.navBar = navBar;
+        this.input = inputPayment;
         this.payment = payment;
         this.expensesBar = expensesBar;
         this.expensesBarList = expensesBarList;
         this.modal = modal;
         this.addButton = addButton;
+        this.walletValue = walletValue;
 
-        this.wallet = new Wallet();
+        this.wallet = new Wallet(this.walletValue);
         this.expensesObj = new Expenses(this.expensesBar, this.expensesBarList);
         this.navBarElement = new NavigationBar(this.navBar, this.modal, this.addButton);
+
+
+        this.input.addEventListener('keypress', (e) =>{
+            const paymentValue = this.input.value;
+            if(e.key === 'Enter' && this.input.value !== ''){
+                this.insertValue(e, paymentValue);
+                this.input.value = '';
+            }
+        })
     }
 
     insertValue(e, paymentValue){
@@ -43,27 +56,30 @@ class App {
             }
         })
 
-        this.navBar.appendChild(input);
+        // this.navBar.appendChild(input);
     }
 
 
-    //This method run app 
+    //Run app 
     start(){
-        this.createInput();
+        // this.createInput();
+        this.expensesObj.createExpensesBar();
+        this.expensesObj.createExpensesBar();
         this.expensesObj.createExpensesBar();
         this.navBarElement.createElement();
-
-        // this.wallet.setValue(2);
+        this.wallet.setValue();
     }
 }
 
 const app = new App({
     navBar: document.querySelector('.nav-bar'),
+    inputPayment: document.querySelector('.input__payment'),
     payment: document.querySelector('.payment__value'),
     expensesBar: document.querySelector('.expenses-bar'),
     expensesBarList: document.querySelector('.expenses-bar__list'),
     modal: document.querySelector('.modal'),
     addButton: document.querySelector('.nav-bar__add-new-expenses button'),
+    walletValue: document.querySelector('.wallet__value')
 });
 
 app.start();
