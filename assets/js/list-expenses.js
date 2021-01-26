@@ -11,8 +11,8 @@ export class ExpensesList {
         const h3 = document.createElement('h3');
         const span = document.createElement('span');
 
-        span.textContent = '200 zł';
-
+        span.classList.add('list-price');
+        span.textContent = 200;
 
         h3.innerHTML = `${this.counter}. Element listy `;
         this.counter++;

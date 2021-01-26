@@ -8,7 +8,6 @@ export  class Expenses{
     ){
         this.expensesBar = expensesBar;
         this.expensesBarList = expensesBarList;
-
         this.expensesList = null;
     }
 
@@ -44,7 +43,7 @@ export  class Expenses{
     price(parentEl){
         const price = document.createElement('span');
         price.className = 'expenses-bar__price';
-        price.innerHTML = '500,00 zł';
+        price.innerHTML = '500';
         parentEl.appendChild(price);
     }
 
@@ -59,10 +58,9 @@ export  class Expenses{
         el[0].className = 'expenses-bar__inner';
         el[1].className = 'expenses-bar__header';
         el[2].className = 'expenses-bar__list';
-        // el.forEach(elem => console.log(elem));
 
         // EVENT CLICK 
-        el[0].addEventListener('click', function(e){
+        el[0].addEventListener('click', function(){
                 if(this.children[0].firstChild.classList.contains('expenses-bar__icon--hide')){
                     this.children[0].firstChild.classList.remove('expenses-bar__icon--hide')
                     el[2].classList.add('expenses-bar__list--hide');
@@ -82,7 +80,7 @@ export  class Expenses{
         this.createBarIcon(el[1]);
         this.createExpensesBarTitle(el[1]);
         this.price(el[1]);
-
+        
         this.expensesList = new ExpensesList(el[2]);
         this.expensesList.createListElements(el[2]);
         this.expensesList.createListElements(el[2]);

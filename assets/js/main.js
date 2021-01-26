@@ -9,8 +9,10 @@ class App {
         payment,
         expensesBar,
         expensesBarList,
-        modal,
-        addButton,
+        modalPayment,
+        modalCategory,
+        buttonSetPayment,
+        buttonAddCategory,
         walletValue,
     }){
         this.navBar = navBar;
@@ -18,47 +20,30 @@ class App {
         this.payment = payment;
         this.expensesBar = expensesBar;
         this.expensesBarList = expensesBarList;
-        this.modal = modal;
-        this.addButton = addButton;
+        this.modalPayment = modalPayment;
+        this.modalCategory = modalCategory;
+        this.buttonSetPayment = buttonSetPayment;
+        this.buttonAddCategory = buttonAddCategory;
         this.walletValue = walletValue;
+        
 
-        this.wallet = new Wallet(this.walletValue);
+        this.wallet = new Wallet(this.walletValue, this.payment);
         this.expensesObj = new Expenses(this.expensesBar, this.expensesBarList);
-        this.navBarElement = new NavigationBar(this.navBar, this.modal, this.addButton);
-
+        this.navBarElement = new NavigationBar(this.navBar, this.modalPayment, this.modalCategory, this.buttonSetPayment, this.buttonAddCategory);
 
         this.input.addEventListener('keypress', (e) =>{
             const paymentValue = this.input.value;
             if(e.key === 'Enter' && this.input.value !== ''){
                 this.insertValue(e, paymentValue);
+                this.wallet.setValue();
                 this.input.value = '';
             }
         })
     }
 
     insertValue(e, paymentValue){
-        this.payment.innerHTML = paymentValue + ' zł';
+        this.payment.innerHTML = paymentValue;
     }
-
-    //Navbar input 
-    createInput(){
-        const input = document.createElement('input');
-        input.classList.add('input__payment');
-        input.setAttribute('type', 'number');
-        input.setAttribute('placeholder', '2000 zł');
-
-        // Event
-        input.addEventListener('keypress', (e) =>{
-            const paymentValue = input.value;
-            if(e.key === 'Enter' && input.value !== ''){
-                this.insertValue(e, paymentValue);
-                input.value = '';
-            }
-        })
-
-        // this.navBar.appendChild(input);
-    }
-
 
     //Run app 
     start(){
@@ -66,7 +51,7 @@ class App {
         this.expensesObj.createExpensesBar();
         this.expensesObj.createExpensesBar();
         this.expensesObj.createExpensesBar();
-        this.navBarElement.createElement();
+        this.navBarElement.setEvents();
         this.wallet.setValue();
     }
 }
@@ -77,8 +62,10 @@ const app = new App({
     payment: document.querySelector('.payment__value'),
     expensesBar: document.querySelector('.expenses-bar'),
     expensesBarList: document.querySelector('.expenses-bar__list'),
-    modal: document.querySelector('.modal'),
-    addButton: document.querySelector('.nav-bar__add-new-expenses button'),
+    modalPayment: document.querySelector('.modal__payment'),
+    modalCategory: document.querySelector('.modal__add-category'),
+    buttonSetPayment: document.querySelector('.btn-set-payment-value'),
+    buttonAddCategory: document.querySelector('.btn-add-category'),
     walletValue: document.querySelector('.wallet__value')
 });
 
