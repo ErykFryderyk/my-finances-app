@@ -33,10 +33,10 @@ export  class Expenses{
         parentEl.appendChild(barIcon);
     }
 
-    createExpensesBarTitle(parentEl){
+    createExpensesBarTitle(parentEl, nameCategory = 'Nowa Kategoria'){
         const title = document.createElement('h2');
         title.className = 'expenses-bar__title'
-        title.innerHTML = "Nowa Kategoria";
+        title.innerHTML = nameCategory;
         parentEl.appendChild(title);
     }
 
@@ -48,7 +48,7 @@ export  class Expenses{
     }
 
 
-    createExpensesBar(){
+    createExpensesBar(inputValue){
         const el = []
         
         for (let i = 0; i <= 2; i++) {
@@ -78,7 +78,7 @@ export  class Expenses{
         this.expensesBar.appendChild(el[0]);
         this.createExpensesBarIcon(el[1]);
         this.createBarIcon(el[1]);
-        this.createExpensesBarTitle(el[1]);
+        this.createExpensesBarTitle(el[1], inputValue);
         this.price(el[1]);
         
         this.expensesList = new ExpensesList(el[2]);
