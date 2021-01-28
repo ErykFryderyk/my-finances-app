@@ -14,6 +14,7 @@ class App {
         buttonSetPayment,
         buttonAddCategory,
         walletValue,
+        btnAddCategory
     }){
         this.navBar = navBar;
         this.input = inputPayment;
@@ -25,6 +26,8 @@ class App {
         this.buttonSetPayment = buttonSetPayment;
         this.buttonAddCategory = buttonAddCategory;
         this.walletValue = walletValue;
+        this.btnAddCategory = btnAddCategory;
+        this.inputCategory;
         
 
         this.wallet = new Wallet(this.walletValue, this.payment);
@@ -39,6 +42,12 @@ class App {
                 this.input.value = '';
             }
         })
+
+        this.btnAddCategory.addEventListener('click', () => {
+            this.inputCategory = document.querySelector('.modal__input-category');
+            this.expensesObj.createExpensesBar(this.inputCategory.value);
+            this.wallet.setValue();
+        });
     }
 
     insertValue(e, paymentValue){
@@ -66,7 +75,8 @@ const app = new App({
     modalCategory: document.querySelector('.modal__add-category'),
     buttonSetPayment: document.querySelector('.btn-set-payment-value'),
     buttonAddCategory: document.querySelector('.btn-add-category'),
-    walletValue: document.querySelector('.wallet__value')
+    walletValue: document.querySelector('.wallet__value'),
+    btnAddCategory: document.querySelector('#add-category'),
 });
 
 app.start();
