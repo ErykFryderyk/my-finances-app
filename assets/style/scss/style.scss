@@ -231,7 +231,7 @@ body{
         bottom: 0;
         // display: none;
 
-        &--active{
+        &--hide{
              transform: translateX(100%);
             display: block;
         }

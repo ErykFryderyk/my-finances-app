@@ -195,7 +195,7 @@ body {
     top: 0;
     left: 0;
     bottom: 0; }
-    .modal__add-category--active {
+    .modal__add-category--hide {
       transform: translateX(100%);
       display: block; }
     .modal__add-category input[type=radio] {
