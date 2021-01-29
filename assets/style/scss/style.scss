@@ -279,6 +279,19 @@ body{
             background-color: #e0e0e0;
         }
     }
+
+    &__add-item{ 
+        background-color: goldenrod;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        &--hide {
+            transform: translateX(100%);
+            display: block;
+        }
+    }
 }
 
 .input__payment {
