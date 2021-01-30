@@ -11,12 +11,6 @@ export  class Expenses{
         this.expensesList = null;
     }
 
-    createElement(element, type, nameClass){
-        element = document.createElement(`.${type}`);
-        element.className = nameClass;
-    }
-
-
     createExpensesBarIcon(parentEl){
         const boxIcon = document.createElement('div');
 
@@ -36,6 +30,7 @@ export  class Expenses{
     createExpensesBarTitle(parentEl, nameCategory = 'Nowa Kategoria'){
         const title = document.createElement('h2');
         title.className = 'expenses-bar__title'
+        title.setAttribute('data-category', nameCategory);
         title.innerHTML = nameCategory;
         parentEl.appendChild(title);
     }
