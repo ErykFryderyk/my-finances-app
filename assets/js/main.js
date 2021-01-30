@@ -1,5 +1,6 @@
 import { Wallet } from './wallet.js';
 import { Expenses } from './expenses.js';
+import { ExpensesList } from './list-expenses.js'
 import { NavigationBar } from './navigationBar.js';
 
 class App {
@@ -14,7 +15,8 @@ class App {
         buttonSetPayment,
         buttonAddCategory,
         walletValue,
-        btnAddCategory
+        btnAddCategory,
+        btnAddItem
     }){
         this.navBar = navBar;
         this.input = inputPayment;
@@ -28,10 +30,12 @@ class App {
         this.walletValue = walletValue;
         this.btnAddCategory = btnAddCategory;
         this.inputCategory;
+        this.btnAddItem = btnAddItem;
         
 
         this.wallet = new Wallet(this.walletValue, this.payment);
         this.expensesObj = new Expenses(this.expensesBar, this.expensesBarList);
+        this.expensesList = new ExpensesList();
         this.navBarElement = new NavigationBar(this.navBar, this.modalPayment, this.modalCategory, this.buttonSetPayment, this.buttonAddCategory);
 
         this.input.addEventListener('keypress', (e) =>{
@@ -45,9 +49,29 @@ class App {
 
         this.btnAddCategory.addEventListener('click', () => {
             this.inputCategory = document.querySelector('.modal__input-category');
-            this.expensesObj.createExpensesBar(this.inputCategory.value);
-            this.wallet.setValue();
+            if(this.inputCategory.value !== ''){
+                this.expensesObj.createExpensesBar(this.inputCategory.value);
+                this.wallet.setValue();
+            }
         });
+
+        this.btnAddItem.addEventListener('click', () => {
+            const inputExpenseName = document.querySelector('#expense-name');
+            const inputExpenseValue = document.querySelector('#expense-value');
+            const inputSelectCategory = document.querySelector('#select-category');
+
+            
+            if(inputExpenseName.value !== '' && inputExpenseValue.value !== ''){
+                console.log(inputExpenseName.value);
+                console.log(inputSelectCategory.value);
+                console.log(inputSelectCategory.value);
+                 
+                this.expensesList.createListElements();
+                
+            }else{
+                console.log('Wypełnij inputy');
+            }
+        })
     }
 
     insertValue(e, paymentValue){
@@ -62,6 +86,10 @@ class App {
         this.expensesObj.createExpensesBar();
         this.navBarElement.setEvents();
         this.wallet.setValue();
+        const elem = document.querySelectorAll('.expenses-bar__inner');
+        elem.forEach(el => {
+            console.log(el.children);
+        })
     }
 }
 
@@ -77,6 +105,7 @@ const app = new App({
     buttonAddCategory: document.querySelector('.btn-add-category'),
     walletValue: document.querySelector('.wallet__value'),
     btnAddCategory: document.querySelector('#add-category'),
+    btnAddItem: document.querySelector('#add-item'),
 });
 
 app.start();
