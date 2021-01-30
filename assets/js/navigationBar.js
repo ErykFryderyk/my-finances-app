@@ -3,33 +3,31 @@ export class NavigationBar {
         this.wrapper = wrapper;
         this.modalPayment = modalPayment;
         this.modalCategory = modalCategory;
+        this.modalItem = document.querySelector('.modal__add-item');
         this.button = buttonSet;
         this.buttonCategory = buttonAdd;
+        this.buttonAddItem = document.querySelector('.btn-add-item');
 
         this.inputCategory;
     }
 
     setEvents(){
         this.button.addEventListener('click', () => {
+            this.modalCategory.classList.add('modal__add-category--hide');
+            this.modalItem.classList.add('modal__add-item--hide');
             this.modalPayment.classList.toggle('modal--active');
         });
 
         this.buttonCategory.addEventListener('click', () => {
+            this.modalPayment.classList.remove('modal--active');
+            this.modalItem.classList.add('modal__add-item--hide');
             this.modalCategory.classList.toggle('modal__add-category--hide');
         });
 
-        
-        const div = document.createElement('div');
-        const button = document.createElement('button');
-        
-        button.textContent = '+';
-        button.addEventListener('click', () => {
-            this.modal.classList.toggle('modal--active')
-        });
-
-        div.setAttribute('class', 'nav-bar__add-new-expenses');
-        div.appendChild(button);
-        // this.wrapper.appendChild(div);
-
+        this.buttonAddItem.addEventListener('click', () => {
+            this.modalCategory.classList.add('modal__add-category--hide');
+            this.modalPayment.classList.remove('modal--active');
+            this.modalItem.classList.toggle('modal__add-item--hide');
+        })
     }
 }
