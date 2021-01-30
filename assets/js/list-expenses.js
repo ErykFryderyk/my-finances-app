@@ -2,10 +2,9 @@ export class ExpensesList {
 
     constructor(parentEl){
         this.parentEl = parentEl;
-        this.counter = 1;
     }
 
-    createListElements(){
+    createListElements(parent = this.parentEl){
         const ul = document.createElement('ul');
         const li = document.createElement('li');
         const h3 = document.createElement('h3');
@@ -17,16 +16,19 @@ export class ExpensesList {
         button.textContent = "Usuń";
 
 
-        h3.innerHTML = `${this.counter}. Element listy `;
-        this.counter++;
+        h3.innerHTML = `Element listy `;
         
         h3.appendChild(span);  
         li.appendChild(h3);
         li.appendChild(button);
         ul.appendChild(li);
 
-        this.parentEl.classList.add('expenses-bar__list--hide');
-        this.parentEl.appendChild(ul);
+        parent.classList.add('expenses-bar__list--hide');
+        parent.appendChild(ul);
+    }
+
+    fun(){
+        console.log('działa');
     }
 };
 
