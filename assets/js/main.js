@@ -31,12 +31,11 @@ class App {
         this.btnAddCategory = btnAddCategory;
         this.inputCategory;
         this.btnAddItem = btnAddItem;
-        
 
         this.wallet = new Wallet(this.walletValue, this.payment);
         this.expensesObj = new Expenses(this.expensesBar, this.expensesBarList);
-        this.expensesList = new ExpensesList();
         this.navBarElement = new NavigationBar(this.navBar, this.modalPayment, this.modalCategory, this.buttonSetPayment, this.buttonAddCategory);
+        this.listExpenses = new ExpensesList();
 
         this.input.addEventListener('keypress', (e) =>{
             const paymentValue = this.input.value;
@@ -58,19 +57,16 @@ class App {
         this.btnAddItem.addEventListener('click', () => {
             const inputExpenseName = document.querySelector('#expense-name');
             const inputExpenseValue = document.querySelector('#expense-value');
-            const inputSelectCategory = document.querySelector('#select-category');
+            // const inputSelectCategory = document.querySelector('#select-category');
+            const wrapperElement = document.querySelector('.expenses-bar__list');
+            console.log(wrapperElement);
 
-            
             if(inputExpenseName.value !== '' && inputExpenseValue.value !== ''){
-                console.log(inputExpenseName.value);
-                console.log(inputSelectCategory.value);
-                console.log(inputSelectCategory.value);
-                 
-                this.expensesList.createListElements();
-                
+                this.listExpenses.createListElements(wrapperElement);
             }else{
                 console.log('Wypełnij inputy');
             }
+
         })
     }
 
@@ -86,10 +82,10 @@ class App {
         this.expensesObj.createExpensesBar();
         this.navBarElement.setEvents();
         this.wallet.setValue();
-        const elem = document.querySelectorAll('.expenses-bar__inner');
-        elem.forEach(el => {
-            console.log(el.children);
-        })
+        // const elem = document.querySelectorAll('.expenses-bar__inner');
+        // elem.forEach(el => {
+        //     console.log(el.children);
+        // })
     }
 }
 
