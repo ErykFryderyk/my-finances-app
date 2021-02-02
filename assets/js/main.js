@@ -49,6 +49,16 @@ class App {
         this.btnAddCategory.addEventListener('click', () => {
             this.inputCategory = document.querySelector('.modal__input-category');
             if(this.inputCategory.value !== ''){
+                const selectCategory = document.querySelector('#select-category');
+
+                const option = document.createElement('option');
+
+                option.setAttribute('value', 1);
+                option.innerHTML = `${this.inputCategory.value}`;
+
+                selectCategory.appendChild(option);
+
+
                 this.expensesObj.createExpensesBar(this.inputCategory.value);
                 this.wallet.setValue();
             }
@@ -57,12 +67,17 @@ class App {
         this.btnAddItem.addEventListener('click', () => {
             const inputExpenseName = document.querySelector('#expense-name');
             const inputExpenseValue = document.querySelector('#expense-value');
-            // const inputSelectCategory = document.querySelector('#select-category');
+            const inputSelectCategory = document.querySelector('#select-category');
             const wrapperElement = document.querySelector('.expenses-bar__list');
-            console.log(wrapperElement);
+            console.log(inputSelectCategory.value);
 
             if(inputExpenseName.value !== '' && inputExpenseValue.value !== ''){
-                this.listExpenses.createListElements(wrapperElement);
+                this.listExpenses.createListElements(wrapperElement, inputExpenseName.value, inputExpenseValue.value);
+
+                inputExpenseName.value = '';
+                inputExpenseValue.value = '';
+                this.navBarElement.checkClassList();
+
             }else{
                 console.log('Wypełnij inputy');
             }
