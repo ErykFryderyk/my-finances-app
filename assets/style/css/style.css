@@ -49,56 +49,89 @@ svg {
   height: 64px; }
 
 body {
-  background-color: #202020; }
+  background-color: #f8cc2f; }
 
 .header {
   width: 100%;
-  height: 100px;
+  height: 70px;
   display: flex;
   align-items: center; }
   .header__app-logo .app-logo {
-    fill: #fff;
+    fill: #464646;
     height: 45px;
     width: 45px; }
   .header__title {
-    font-size: 20px;
-    margin-left: 15px; }
+    font-size: 18px;
+    margin-left: 15px;
+    color: #393939;
+    font-weight: 500; }
 
 .wealth-section {
-  background-color: gray;
   width: 100%;
-  height: auto; }
+  height: auto;
+  background-color: #3939391f;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 20px; }
 
 .wealth-wrapper {
-  min-height: 140px; }
+  text-align: right; }
+  .wealth-wrapper date {
+    font-size: 10px; }
+
+.payment {
+  margin-bottom: 10px; }
+  .payment__budget {
+    font-size: 14px;
+    font-weight: 500;
+    color: #393939; }
+  .payment__value {
+    font-size: 42px;
+    font-weight: 400;
+    color: #464646; }
+
+.wallet__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #393939; }
+
+.wallet__value {
+  font-size: 62px;
+  font-weight: 300;
+  color: #464646; }
+
+.monetary-unit {
+  font-size: 20px;
+  font-weight: 500;
+  color: #464646; }
 
 .expenses-section {
+  box-shadow: 0 0 7px 5px #0f0f0f38;
+  background-color: #ffffff;
+  border-radius: 10px;
   width: 100%; }
 
 .expenses-bar {
   display: block;
   width: 100%;
-  height: auto; }
+  height: auto;
+  border-radius: 5px; }
   .expenses-bar__inner {
     display: flex;
     width: 100%;
     height: auto;
     flex-direction: column; }
-    .expenses-bar__inner:last-child {
-      margin-bottom: 100px; }
   .expenses-bar__header {
     display: flex;
     width: 100%;
     height: 50px;
-    align-items: center;
-    background-color: #585858;
-    border-bottom: 1px solid white; }
+    align-items: center; }
   .expenses-bar__icon {
     margin: 0 5px; }
     .expenses-bar__icon svg {
       width: 10px;
       height: 10px;
-      fill: white;
+      fill: #393939;
       transition: transform .5s ease;
       transform: rotate(-90deg); }
     .expenses-bar__icon--hide svg {
@@ -106,14 +139,16 @@ body {
   .expenses-bar__header-icon svg {
     width: 30px;
     height: 30px;
-    fill: white;
+    fill: #393939;
     margin: 0 5px; }
   .expenses-bar__title {
     font-size: 16px;
     margin-left: 5px;
-    color: white; }
+    color: #393939;
+    font-weight: 400; }
   .expenses-bar__price {
-    color: white;
+    color: #393939;
+    font-weight: 400;
     margin: 0 5px 0 auto; }
   .expenses-bar__list {
     height: auto;
@@ -147,7 +182,7 @@ body {
     transform: scaleY(0); } }
 
 .nav-bar {
-  background-color: #b8b8b8;
+  background-color: #191a35;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -198,49 +233,14 @@ body {
     .modal__add-category--hide {
       transform: translateX(100%);
       display: block; }
-    .modal__add-category input[type=radio] {
-      display: none; }
-    .modal__add-category input[type=radio] + label {
-      display: inline-block;
-      margin: -2px;
-      padding: 4px 12px;
-      margin-bottom: 0;
-      font-size: 14px;
-      line-height: 20px;
-      color: #333;
-      text-align: center;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #f5f5f5;
-      background-image: -moz-linear-gradient(top, #fff, #e6e6e6);
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e6e6e6));
-      background-image: -webkit-linear-gradient(top, #fff, #e6e6e6);
-      background-image: -o-linear-gradient(top, #fff, #e6e6e6);
-      background-image: linear-gradient(to bottom, #fff, #e6e6e6);
-      background-repeat: repeat-x;
-      border: 1px solid #ccc;
-      border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-      border-bottom-color: #b3b3b3;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-      filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-      -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-      -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); }
-    .modal__add-category input[type=radio]:checked + label {
-      background-image: none;
-      outline: 0;
-      -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-      -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
-      background-color: #e0e0e0; }
   .modal__add-item {
     background-color: goldenrod;
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0; }
+    bottom: 0;
+    display: flex;
+    flex-direction: column; }
     .modal__add-item--hide {
       transform: translateX(100%);
       display: block; }
