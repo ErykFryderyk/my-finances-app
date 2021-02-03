@@ -11,6 +11,7 @@ export class NavigationBar {
         this.inputCategory;
     }
 
+    
     setEvents(){
         this.button.addEventListener('click', () => {
             this.modalCategory.classList.add('modal__add-category--hide');
@@ -25,9 +26,14 @@ export class NavigationBar {
         });
 
         this.buttonAddItem.addEventListener('click', () => {
-            this.modalCategory.classList.add('modal__add-category--hide');
-            this.modalPayment.classList.remove('modal--active');
-            this.modalItem.classList.toggle('modal__add-item--hide');
-        })
+            this.checkClassList();
+        });
     }
+    
+    checkClassList(){
+        this.modalCategory.classList.add('modal__add-category--hide');
+        this.modalPayment.classList.remove('modal--active');
+        this.modalItem.classList.toggle('modal__add-item--hide');
+    }
+    
 }
