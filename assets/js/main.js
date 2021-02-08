@@ -46,14 +46,16 @@ class App {
             }
         })
 
+        //dodawanie kategorii w modalu
         this.btnAddCategory.addEventListener('click', () => {
             this.inputCategory = document.querySelector('.modal__input-category');
             if(this.inputCategory.value !== ''){
                 const selectCategory = document.querySelector('#select-category');
+                const numberOfOptions = document.querySelectorAll('option').length - 1;
 
+                console.log(numberOfOptions);
                 const option = document.createElement('option');
-
-                option.setAttribute('value', 1);
+                option.setAttribute('value', numberOfOptions);
                 option.innerHTML = `${this.inputCategory.value}`;
 
                 selectCategory.appendChild(option);
@@ -61,15 +63,19 @@ class App {
 
                 this.expensesObj.createExpensesBar(this.inputCategory.value);
                 this.wallet.setValue();
+            }else{
+                console.log("Wypełnij Input");
             }
         });
 
+        // dodawanie nowej rzeczy do listy  
         this.btnAddItem.addEventListener('click', () => {
             const inputExpenseName = document.querySelector('#expense-name');
             const inputExpenseValue = document.querySelector('#expense-value');
-            const inputSelectCategory = document.querySelector('#select-category');
-            const wrapperElement = document.querySelector('.expenses-bar__list');
-            console.log(inputSelectCategory.value);
+            const inputSelectedOption = document.querySelector('#select-category');
+            const expenseBars = document.querySelectorAll('.expenses-bar__list');
+
+            const wrapperElement = expenseBars[inputSelectedOption.value]; 
 
             if(inputExpenseName.value !== '' && inputExpenseValue.value !== ''){
                 this.listExpenses.createListElements(wrapperElement, inputExpenseName.value, inputExpenseValue.value);
@@ -92,15 +98,12 @@ class App {
     //Run app 
     start(){
         // this.createInput();
-        this.expensesObj.createExpensesBar();
-        this.expensesObj.createExpensesBar();
-        this.expensesObj.createExpensesBar();
+        // this.expensesObj.createExpensesBar();
+        // this.expensesObj.createExpensesBar();
+        // this.expensesObj.createExpensesBar();
         this.navBarElement.setEvents();
         this.wallet.setValue();
-        // const elem = document.querySelectorAll('.expenses-bar__inner');
-        // elem.forEach(el => {
-        //     console.log(el.children);
-        // })
+        // this.expensesObj.getElements();
     }
 }
 
