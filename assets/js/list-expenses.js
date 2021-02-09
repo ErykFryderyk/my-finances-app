@@ -2,12 +2,9 @@ export class ExpensesList {
 
     constructor(parentEl){
         this.parentEl = parentEl;
-        this.categoryListPrice = [
-            []
-        ];
     }
 
-    createListElements(el = this.parentEl, expenseName = 'Element listy', expensePrice = 0){
+    createListElements(el = this.parentEl, expenseName = 'Element listy', expensePrice = 10){
         const ul = document.createElement('ul');
         const li = document.createElement('li');
         const p = document.createElement('p');
@@ -17,11 +14,7 @@ export class ExpensesList {
         span.classList.add('list-price');
         span.textContent = `${expensePrice}`;
         button.textContent = "Usuń";
-
-
         p.innerHTML = `${expenseName}`;
-
-        this.categoryListPrice[0].push(expensePrice);
         
         li.appendChild(p);
         li.appendChild(span);  
@@ -30,8 +23,6 @@ export class ExpensesList {
 
         el.classList.add('expenses-bar__list--hide');
         el.appendChild(ul);
-
-        console.log(this.categoryListPrice);
     }
 };
 
