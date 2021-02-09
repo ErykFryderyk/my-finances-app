@@ -1,15 +1,20 @@
 import { arrow, categoryIcon } from './svgfile.js';
-import { ExpensesList } from './list-expenses.js';
 
 export  class Expenses{
+
+    
     constructor(
         expensesBar, 
         expensesBarList
-    ){
-        this.expensesBar = expensesBar;
-        this.expensesBarList = expensesBarList;
-        this.expensesList = null;
-    }
+        ){
+            this.expensesBar = expensesBar;
+            this.expensesBarList = expensesBarList;
+            
+            this.expensesList = null;
+            this.elementsArray = [];
+
+            this.array = [];
+        }
 
     createExpensesBarIcon(parentEl){
         const boxIcon = document.createElement('div');
@@ -30,20 +35,19 @@ export  class Expenses{
     createExpensesBarTitle(parentEl, nameCategory = 'Nowa Kategoria'){
         const title = document.createElement('h2');
         title.className = 'expenses-bar__title'
-        title.setAttribute('data-category', nameCategory);
         title.innerHTML = nameCategory;
         parentEl.appendChild(title);
     }
 
-    price(parentEl){
+    price(parentEl, countedValues = 0){
         const price = document.createElement('span');
         price.className = 'expenses-bar__price';
-        price.innerHTML = '500';
+        price.innerHTML = countedValues;
         parentEl.appendChild(price);
     }
 
 
-    createExpensesBar(inputValue){
+    createExpensesBar(inputValue, string){
         const el = []
         
         for (let i = 0; i <= 2; i++) {
@@ -75,9 +79,23 @@ export  class Expenses{
         this.createBarIcon(el[1]);
         this.createExpensesBarTitle(el[1], inputValue);
         this.price(el[1]);
-        
-        this.expensesList = new ExpensesList(el[2]);
-        this.expensesList.createListElements(el[2]);
-        this.expensesList.createListElements(el[2]);
+    }
+
+    getElements(string, numberOfElement){
+        const listPriceArray = [];
+        const listChildrenLength = numberOfElement.children.length;
+        let addedPrice = null;
+
+        for (let i = 0; i < listChildrenLength; i++) {
+            const element = numberOfElement.children[i].firstChild.children[1].innerHTML;
+
+            listPriceArray.push(parseInt(element));
+        }
+
+        listPriceArray.forEach(price => {
+            addedPrice = addedPrice + price;
+        });
+
+        string.innerHTML = addedPrice;
     }
 }
