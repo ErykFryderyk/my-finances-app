@@ -26,7 +26,6 @@ export class Wallet {
 
     setValue(){ 
         this.calculation();
-        this.elem.innerHTML = this.price + "zł";
-        
+        this.elem.innerHTML = this.price;
     }
 }
