@@ -16,9 +16,12 @@ body{
     height: 70px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     &__app-logo{
-        
+        display: flex;
+        align-items: center;
+
         .app-logo{
             fill: $color-3;
             height: 45px;
@@ -30,6 +33,37 @@ body{
         margin-left: 15px;
         color: $color-2;
         font-weight: 500;
+
+        &::after{
+            content: '';
+            width: 104px;
+            height: 2px;
+            margin-top: 2px;
+            background-color: $color-2;
+            position: absolute;display: flex;
+        }
+    }
+
+    &__day-and-night{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn__day-and-night{
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+
+            svg{
+                width: 100%;
+                height: 100%;
+                fill: $color-2;
+            }
+        }
     }
 }
 
@@ -45,9 +79,7 @@ body{
 }
 
 .wealth-wrapper{
-    // min-height: 140px;
     text-align: right;
-
     date{
         font-size: 10px;
     }
@@ -95,8 +127,6 @@ body{
 // SECTION EXPENSES
 
 .expenses-section{
-    // background-color: #585858;
-    // border: 1px solid $color-2;
     box-shadow: 0 0 7px 5px $o-color-2;
     background-color: $color-white;
     border-radius: 10px;
@@ -108,7 +138,6 @@ body{
     width: 100%;
     height: auto;
     border-radius: 5px;
-    // background-color: $color-white;
 
     &__inner {
         display: flex;
@@ -117,7 +146,7 @@ body{
         flex-direction: column;
 
         &:last-child{
-            // margin-bottom: 100px;
+            margin-bottom: 100px;
         }
     }
 
@@ -223,9 +252,15 @@ body{
     left: 0;
     width: 100%;
     z-index: 999;
+    box-shadow: 0px 0px 20px 2px  #000;
+
+    @include bp(small) {
+        width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     &__add-new-expenses{
-
         button{
             width: 48px;
             height: 48px;
@@ -234,6 +269,7 @@ body{
             display: block;
             border: none;
             outline: none;
+            cursor: pointer;
 
             svg{
                 width: 100%;
@@ -246,7 +282,6 @@ body{
     }
 
     &__add-new-category{
-
         button{
             background-color: transparent;
             border: none;
@@ -254,6 +289,7 @@ body{
             height: 48px;
             display: block;
             outline: none;
+            cursor: pointer;
 
             svg{
                 fill: white;
@@ -270,6 +306,7 @@ body{
             height: 48px;
             display: block;
             outline: none;
+            cursor: pointer;
 
             svg{
                 fill:white;
@@ -282,32 +319,45 @@ body{
 
 
 // MODAL
-
 .modal{
-    background-color: pink;
-    position: fixed;
     left: 0;
     right: 0;
-    padding: 5px 15px;
-    top: 100%;
+    bottom: 0;
     transition: transform .5s ease;
-
-    &--active{
-        transform: translateY(-300%);
+    
+    &__add-budget{
+        background-color: $color-4;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        padding: 20px 15px;
+        height: 200px;
+        
+        &--hide{
+            transform: translateY(100%);
+        }
+        
+        h3{
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
     }
-
-
+    
     &__add-category{
         background-color: pink;
+        max-width: 500px;
         position: fixed;
         top: 0;
-        left: 0;
-        bottom: 0;
-        // display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
         &--hide{
-            transform: translateX(100%);
-            display: block;
+            transform: translateX(-500px);
         }
     }
 
@@ -315,23 +365,26 @@ body{
         background-color: goldenrod;
         position: fixed;
         top: 0;
-        left: 0;
-        bottom: 0;
+        max-width: 500px;
         display: flex;
+        justify-content: center;
         flex-direction: column;
+        padding: 20px 10px;
+
         &--hide {
-            transform: translateX(100%);
-            display: block;
+            transform: translateX(-500px);
         }
     }
 }
 
 .input__payment {
-    margin-top: 5px;
     border: none;
-    border-bottom: 1px solid white;
+    outline: none;
+    border-bottom: 1px solid #fff;
     background-color: transparent;
     padding: 5px 2px 1px 2px;
     font-size: 19px;
+    text-align: right;
+    letter-spacing: 1.5px;
     color: white;
 }

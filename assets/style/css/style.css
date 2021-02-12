@@ -55,16 +55,43 @@ body {
   width: 100%;
   height: 70px;
   display: flex;
-  align-items: center; }
-  .header__app-logo .app-logo {
-    fill: #464646;
-    height: 45px;
-    width: 45px; }
+  align-items: center;
+  justify-content: space-between; }
+  .header__app-logo {
+    display: flex;
+    align-items: center; }
+    .header__app-logo .app-logo {
+      fill: #464646;
+      height: 45px;
+      width: 45px; }
   .header__title {
     font-size: 18px;
     margin-left: 15px;
     color: #393939;
     font-weight: 500; }
+    .header__title::after {
+      content: '';
+      width: 104px;
+      height: 2px;
+      margin-top: 2px;
+      background-color: #393939;
+      position: absolute;
+      display: flex; }
+  .header__day-and-night {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .header__day-and-night .btn__day-and-night {
+      background-color: transparent;
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: none;
+      cursor: pointer; }
+      .header__day-and-night .btn__day-and-night svg {
+        width: 100%;
+        height: 100%;
+        fill: #393939; }
 
 .wealth-section {
   width: 100%;
@@ -123,6 +150,8 @@ body {
     width: 100%;
     height: auto;
     flex-direction: column; }
+    .expenses-bar__inner:last-child {
+      margin-bottom: 100px; }
   .expenses-bar__header {
     display: flex;
     width: 100%;
@@ -193,7 +222,13 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 999; }
+  z-index: 999;
+  box-shadow: 0px 0px 20px 2px  #000; }
+  @media only screen and (min-width: 768px) {
+    .nav-bar {
+      width: 500px;
+      left: 50%;
+      transform: translateX(-50%); } }
   .nav-bar__add-new-expenses button {
     width: 48px;
     height: 48px;
@@ -201,7 +236,8 @@ body {
     color: white;
     display: block;
     border: none;
-    outline: none; }
+    outline: none;
+    cursor: pointer; }
     .nav-bar__add-new-expenses button svg {
       width: 100%;
       height: 100%;
@@ -213,7 +249,8 @@ body {
     width: 48px;
     height: 48px;
     display: block;
-    outline: none; }
+    outline: none;
+    cursor: pointer; }
     .nav-bar__add-new-category button svg {
       fill: white;
       width: 100%;
@@ -224,48 +261,62 @@ body {
     width: 48px;
     height: 48px;
     display: block;
-    outline: none; }
+    outline: none;
+    cursor: pointer; }
     .nav-bar__add-new-item button svg {
       fill: white;
       width: 100%;
       height: 100%; }
 
 .modal {
-  background-color: pink;
-  position: fixed;
   left: 0;
   right: 0;
-  padding: 5px 15px;
-  top: 100%;
+  bottom: 0;
   transition: transform .5s ease; }
-  .modal--active {
-    transform: translateY(-300%); }
+  .modal__add-budget {
+    background-color: #191a35;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 15px;
+    height: 200px; }
+    .modal__add-budget--hide {
+      transform: translateY(100%); }
+    .modal__add-budget h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px; }
   .modal__add-category {
     background-color: pink;
+    max-width: 500px;
     position: fixed;
     top: 0;
-    left: 0;
-    bottom: 0; }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
     .modal__add-category--hide {
-      transform: translateX(100%);
-      display: block; }
+      transform: translateX(-500px); }
   .modal__add-item {
     background-color: goldenrod;
     position: fixed;
     top: 0;
-    left: 0;
-    bottom: 0;
+    max-width: 500px;
     display: flex;
-    flex-direction: column; }
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 10px; }
     .modal__add-item--hide {
-      transform: translateX(100%);
-      display: block; }
+      transform: translateX(-500px); }
 
 .input__payment {
-  margin-top: 5px;
   border: none;
-  border-bottom: 1px solid white;
+  outline: none;
+  border-bottom: 1px solid #fff;
   background-color: transparent;
   padding: 5px 2px 1px 2px;
   font-size: 19px;
+  text-align: right;
+  letter-spacing: 1.5px;
   color: white; }
