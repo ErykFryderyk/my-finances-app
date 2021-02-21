@@ -74,7 +74,7 @@ body {
       width: 104px;
       height: 2px;
       margin-top: 2px;
-      background-color: #393939;
+      background-color: #464646;
       position: absolute;
       display: flex; }
   .header__day-and-night {
@@ -272,7 +272,16 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  transition: transform .5s ease; }
+  transition: transform .5s ease;
+  color: #fff; }
+  .modal__title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px; }
+  .modal__box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; }
   .modal__add-budget {
     background-color: #191a35;
     position: fixed;
@@ -283,12 +292,8 @@ body {
     height: 200px; }
     .modal__add-budget--hide {
       transform: translateY(100%); }
-    .modal__add-budget h3 {
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 20px; }
   .modal__add-category {
-    background-color: pink;
+    background-color: #464646;
     max-width: 500px;
     position: fixed;
     top: 0;
@@ -296,6 +301,41 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column; }
+    .modal__add-category .modal__input-category {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #fff;
+      background-color: transparent;
+      font-size: 19px;
+      letter-spacing: 1.5px;
+      color: white;
+      margin-bottom: 50px; }
+    .modal__add-category .category-icon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      max-width: 200px; }
+      .modal__add-category .category-icon-box__title {
+        margin-bottom: 10px;
+        font-weight: 400; }
+      .modal__add-category .category-icon-box input[type=radio] {
+        display: none; }
+      .modal__add-category .category-icon-box svg {
+        margin: 3px;
+        fill: #ffffff;
+        width: 42px;
+        cursor: pointer; }
+        .modal__add-category .category-icon-box svg:hover {
+          fill: #f8cc2f; }
+    .modal__add-category .btn-add-category {
+      background-color: #191a35;
+      border: none;
+      outline: none;
+      padding: 10px 20px;
+      color: #ffffff;
+      border-radius: 2px;
+      font-size: 19px; }
     .modal__add-category--hide {
       transform: translateX(-500px); }
   .modal__add-item {

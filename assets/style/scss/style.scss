@@ -39,7 +39,7 @@ body{
             width: 104px;
             height: 2px;
             margin-top: 2px;
-            background-color: $color-2;
+            background-color: $color-3;
             position: absolute;display: flex;
         }
     }
@@ -324,6 +324,19 @@ body{
     right: 0;
     bottom: 0;
     transition: transform .5s ease;
+    color: #fff;
+
+    &__title{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    &__box{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
     
     &__add-budget{
         background-color: $color-4;
@@ -338,16 +351,10 @@ body{
         &--hide{
             transform: translateY(100%);
         }
-        
-        h3{
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
     }
-    
+   
     &__add-category{
-        background-color: pink;
+        background-color: $color-3;
         max-width: 500px;
         position: fixed;
         top: 0;
@@ -355,6 +362,55 @@ body{
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+        .modal__input-category{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            font-size: 19px;
+            letter-spacing: 1.5px;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .category-icon-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            max-width: 200px;
+
+            &__title{
+                margin-bottom: 10px;
+                font-weight: 400;
+            }
+
+            input[type=radio]{
+                display: none;
+            }
+            
+            svg{
+                margin:3px;
+                fill: $color-white;
+                width: 42px;
+                cursor: pointer;            
+
+                &:hover{
+                    fill:$color-1;
+                }
+            }
+        }
+
+        .btn-add-category{
+            background-color: $color-4;
+            border: none;
+            outline:none;
+            padding: 10px 20px;
+            color: $color-white;
+            border-radius: 2px;
+            font-size: 19px;
+        }
 
         &--hide{
             transform: translateX(-500px);
