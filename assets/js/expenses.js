@@ -25,10 +25,10 @@ export  class Expenses{
         parentEl.appendChild(boxIcon); 
     }
 
-    createBarIcon(parentEl){
+    createBarIcon(parentEl, radioValue){
         const barIcon = document.createElement('div');
         barIcon.className = 'expenses-bar__header-icon';
-        barIcon.innerHTML = categoryIcon[0];
+        barIcon.innerHTML = categoryIcon[radioValue];
         parentEl.appendChild(barIcon);
     }
 
@@ -47,7 +47,7 @@ export  class Expenses{
     }
 
 
-    createExpensesBar(inputValue, string){
+    createExpensesBar(inputValue, radioValue){
         const el = []
         
         for (let i = 0; i <= 2; i++) {
@@ -76,7 +76,7 @@ export  class Expenses{
         // CREATE AND ADD ELEMENTS TO EXPENSES WRAPPER 
         this.expensesBar.appendChild(el[0]);
         this.createExpensesBarIcon(el[1]);
-        this.createBarIcon(el[1]);
+        this.createBarIcon(el[1], radioValue);
         this.createExpensesBarTitle(el[1], inputValue);
         this.price(el[1]);
     }

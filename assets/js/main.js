@@ -52,8 +52,10 @@ class App {
             if(this.inputCategory.value !== ''){
                 const selectCategory = document.querySelector('#select-category');
                 const numberOfOptions = document.querySelectorAll('option').length - 1;
+                const inputRadioChecked = document.querySelector('input[type="radio"]:checked').value;
 
-                console.log(numberOfOptions);
+                console.log(inputRadioChecked);
+                
                 const option = document.createElement('option');
                 option.setAttribute('value', numberOfOptions);
                 option.innerHTML = `${this.inputCategory.value}`;
@@ -61,7 +63,7 @@ class App {
                 selectCategory.appendChild(option);
 
 
-                this.expensesObj.createExpensesBar(this.inputCategory.value);
+                this.expensesObj.createExpensesBar(this.inputCategory.value, inputRadioChecked);
                 this.wallet.setValue();
             }else{
                 console.log("Wypełnij Input");
@@ -73,21 +75,28 @@ class App {
             const inputExpenseName = document.querySelector('#expense-name');
             const inputExpenseValue = document.querySelector('#expense-value');
             const inputSelectedOption = document.querySelector('#select-category');
-            const expenseBars = document.querySelectorAll('.expenses-bar__list');
+            const expenseLists = document.querySelectorAll('.expenses-bar__list');
+            const expenseBars = document.querySelectorAll('.expenses-bar__inner');
 
-            const wrapperElement = expenseBars[inputSelectedOption.value]; 
+            const wrapperElement = expenseLists[inputSelectedOption.value]; 
 
             if(inputExpenseName.value !== '' && inputExpenseValue.value !== ''){
+                const par = expenseBars[inputSelectedOption.value].firstChild.lastChild;
+
                 this.listExpenses.createListElements(wrapperElement, inputExpenseName.value, inputExpenseValue.value);
 
                 inputExpenseName.value = '';
                 inputExpenseValue.value = '';
                 this.navBarElement.checkClassList();
 
+
+                this.expensesObj.getElements(par, wrapperElement);
+                this.wallet.setValue();
+
+
             }else{
                 console.log('Wypełnij inputy');
             }
-
         })
     }
 
@@ -97,13 +106,8 @@ class App {
 
     //Run app 
     start(){
-        // this.createInput();
-        // this.expensesObj.createExpensesBar();
-        // this.expensesObj.createExpensesBar();
-        // this.expensesObj.createExpensesBar();
         this.navBarElement.setEvents();
         this.wallet.setValue();
-        // this.expensesObj.getElements();
     }
 }
 
@@ -113,7 +117,7 @@ const app = new App({
     payment: document.querySelector('.payment__value'),
     expensesBar: document.querySelector('.expenses-bar'),
     expensesBarList: document.querySelector('.expenses-bar__list'),
-    modalPayment: document.querySelector('.modal__payment'),
+    modalPayment: document.querySelector('.modal__add-budget'),
     modalCategory: document.querySelector('.modal__add-category'),
     buttonSetPayment: document.querySelector('.btn-set-payment-value'),
     buttonAddCategory: document.querySelector('.btn-add-category'),
