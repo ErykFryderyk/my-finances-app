@@ -386,8 +386,21 @@ body{
                 font-weight: 400;
             }
 
+            &__radio-form{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                grid-gap: 20px;
+
+                @include bp(phone){
+                    display: flex;
+                }
+            }
+
             input[type=radio]{
                 display: none;
+            }
+            input[type=radio]:checked +svg {
+                fill: $color-4;
             }
             
             svg{

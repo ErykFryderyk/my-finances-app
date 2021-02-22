@@ -319,8 +319,17 @@ body {
       .modal__add-category .category-icon-box__title {
         margin-bottom: 10px;
         font-weight: 400; }
+      .modal__add-category .category-icon-box__radio-form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px; }
+        @media only screen and (min-width: 576px) {
+          .modal__add-category .category-icon-box__radio-form {
+            display: flex; } }
       .modal__add-category .category-icon-box input[type=radio] {
         display: none; }
+      .modal__add-category .category-icon-box input[type=radio]:checked + svg {
+        fill: #191a35; }
       .modal__add-category .category-icon-box svg {
         margin: 3px;
         fill: #ffffff;
