@@ -53,8 +53,6 @@ class App {
                 const selectCategory = document.querySelector('#select-category');
                 const numberOfOptions = document.querySelectorAll('option').length - 1;
                 const inputRadioChecked = document.querySelector('input[type="radio"]:checked').value;
-
-                console.log(inputRadioChecked);
                 
                 const option = document.createElement('option');
                 option.setAttribute('value', numberOfOptions);
