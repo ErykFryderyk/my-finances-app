@@ -344,20 +344,40 @@ body {
       padding: 10px 20px;
       color: #ffffff;
       border-radius: 2px;
-      font-size: 19px; }
+      font-size: 19px;
+      cursor: pointer; }
     .modal__add-category--hide {
       transform: translateX(-500px); }
   .modal__add-item {
-    background-color: goldenrod;
+    background-color: #393939;
     position: fixed;
     top: 0;
     max-width: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    padding: 20px 10px; }
+    padding: 0px 30px; }
     .modal__add-item--hide {
       transform: translateX(-500px); }
+    .modal__add-item .add-item__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+    .modal__add-item .add-item__select-title {
+      margin-bottom: 10px;
+      font-weight: 400;
+      font-size: 17px;
+      letter-spacing: 1.2px; }
+    .modal__add-item .btn-add-item {
+      background-color: #191a35;
+      border: none;
+      outline: none;
+      padding: 10px 20px;
+      color: #ffffff;
+      border-radius: 2px;
+      font-size: 19px;
+      cursor: pointer; }
 
 .input__payment {
   border: none;
@@ -369,3 +389,33 @@ body {
   text-align: right;
   letter-spacing: 1.5px;
   color: white; }
+
+.input__expense-name {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 25px; }
+
+.input__expense-value {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 50px; }
+
+.input-select-category {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 25px; }
