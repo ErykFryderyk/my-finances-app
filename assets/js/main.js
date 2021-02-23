@@ -91,8 +91,7 @@ class App {
 
                 this.expensesObj.getElements(par, wrapperElement);
                 this.wallet.setValue();
-
-
+                this.modalItem.classList.toggle('modal__add-item--hide');
             }else{
                 console.log('Wypełnij inputy');
             }
