@@ -61,9 +61,9 @@ class App {
 
                 selectCategory.appendChild(option);
 
-
                 this.expensesObj.createExpensesBar(this.inputCategory.value, inputRadioChecked);
                 this.wallet.setValue();
+                this.modalCategory.classList.toggle('modal__add-category--hide');
             }else{
                 console.log("Wypełnij Input");
             }
