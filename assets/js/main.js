@@ -43,6 +43,7 @@ class App {
                 this.insertValue(e, paymentValue);
                 this.wallet.setValue();
                 this.input.value = '';
+                this.modalPayment.classList.toggle('modal__add-budget--hide');
             }
         })
 
