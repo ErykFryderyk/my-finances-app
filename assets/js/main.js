@@ -126,4 +126,24 @@ const app = new App({
 
 app.start();
 
+const styleBtn = document.querySelector('.btn__day-and-night');
+let lightAndDark = true;
+let root = document.documentElement
 
+
+
+styleBtn.addEventListener('click', () => {
+    if(lightAndDark){
+        lightAndDark = false;
+        root.style.setProperty('--primary-color', '#191a35');
+        root.style.setProperty('--secondary-color', '#313131');
+        root.style.setProperty('--third-color', '#fff');
+        root.style.setProperty('--fourth-color', '#c29906');
+    } else{
+        lightAndDark = true;
+        root.style.setProperty('--primary-color', '#f8cc2f');
+        root.style.setProperty('--secondary-color', '#5c5c5c');
+        root.style.setProperty('--third-color', '#464646');
+        root.style.setProperty('--fourth-color', '#191a35');
+    }
+})
