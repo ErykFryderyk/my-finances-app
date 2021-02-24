@@ -2,13 +2,20 @@
 @import '_settings.scss';
 @import '_mixins.scss';
 
+:root{
+    --primary-color: #{$color-1};
+    --secondary-color: #{$color-2};
+    --third-color: #{$color-3};
+    --fourth-color: #{$color-4};
+}
+
 svg{
     width: 64px;
     height: 64px;
 }
 
 body{
-    background-color: $color-1;
+    background-color: var(--primary-color);
 }
 
 .header{
@@ -23,7 +30,7 @@ body{
         align-items: center;
 
         .app-logo{
-            fill: $color-3;
+            fill: var(--third-color);
             height: 45px;
             width: 45px;
         }
@@ -31,7 +38,7 @@ body{
     &__title{
         font-size: 18px;
         margin-left: 15px;
-        color: $color-2;
+        color: var(--secondary-color);
         font-weight: 500;
 
         &::after{
@@ -39,7 +46,7 @@ body{
             width: 104px;
             height: 2px;
             margin-top: 2px;
-            background-color: $color-3;
+            background-color: var(--third-color);
             position: absolute;display: flex;
         }
     }
@@ -61,7 +68,7 @@ body{
             svg{
                 width: 100%;
                 height: 100%;
-                fill: $color-2;
+                fill: var(--secondary-color);
             }
         }
     }
@@ -91,13 +98,13 @@ body{
     &__budget{
         font-size: 14px;
         font-weight: 500;
-        color: $color-2;
+        color: var(--secondary-color);
     }
 
     &__value{ 
         font-size: 42px;
         font-weight: 400;
-        color: $color-3;
+        color: var(--third-color);
     }
 }
 
@@ -106,20 +113,20 @@ body{
     &__title{
         font-size: 14px;
         font-weight: 500;
-        color: $color-2;
+        color: var(--secondary-color);
     }
 
     &__value{
         font-size: 62px;
         font-weight: 300;
-        color: $color-3;
+        color: var(--third-color);
     }
 }
 
 .monetary-unit{
     font-size: 20px;
     font-weight: 500;
-    color: $color-3;
+    color: var(--third-color);
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
 }
@@ -164,7 +171,7 @@ body{
         svg {
             width: 10px;
             height: 10px;
-            fill: $color-2;
+            fill: var(--secondary-color);
             transition: transform .5s ease;
             transform: rotate(-90deg);
         }
@@ -179,18 +186,18 @@ body{
         svg {
             width: 30px;
             height: 30px;
-            fill: $color-2;
+            fill: var(--secondary-color);
             margin: 0 5px;
         }
     }
     &__title{
         font-size: 16px;
         margin-left: 5px;
-        color:$color-2;
+        color:var(--secondary-color);
         font-weight: 400;
     }
     &__price{
-        color: $color-2;
+        color: var(--secondary-color);
         font-weight: 400;
         margin: 0 5px 0 auto;
     }
@@ -242,7 +249,7 @@ body{
 
 // NAVIGATION 
 .nav-bar{
-    background-color: $color-4;
+    background-color: var(--fourth-color);
     position: fixed;
     display: flex;
     justify-content: space-around;
@@ -252,7 +259,7 @@ body{
     left: 0;
     width: 100%;
     z-index: 999;
-    box-shadow: 0px 0px 20px 2px  #000;
+    box-shadow: 0px 0px 20px 2px #000;
 
     @include bp(small) {
         width: 500px;
@@ -339,7 +346,7 @@ body{
     }
     
     &__add-budget{
-        background-color: $color-4;
+        background-color: var(--fourth-color);
         position: fixed;
         display: flex;
         align-items: center;
@@ -354,7 +361,7 @@ body{
     }
    
     &__add-category{
-        background-color: $color-3;
+        background-color: var(--secondary-color);
         max-width: 500px;
         position: fixed;
         top: 0;
@@ -400,27 +407,27 @@ body{
                 display: none;
             }
             input[type=radio]:checked +svg {
-                fill: $color-4;
+                fill: var(--primary-color);
             }
             
             svg{
                 margin:3px;
-                fill: $color-white;
+                fill: var(--primary-color);
                 width: 42px;
                 cursor: pointer;            
 
                 &:hover{
-                    fill:$color-1;
+                    fill:var(--primary-color);
                 }
             }
         }
 
         .btn-add-category{
-            background-color: $color-4;
+            background-color: var(--primary-color);
             border: none;
             outline:none;
             padding: 10px 20px;
-            color: $color-white;
+            color: var(--third-color);
             border-radius: 2px;
             font-size: 19px;
             cursor: pointer;
@@ -432,7 +439,7 @@ body{
     }
 
     &__add-item{ 
-        background-color: $color-2;
+        background-color: var(--secondary-color);
         position: fixed;
         top: 0;
         max-width: 500px;
@@ -459,7 +466,7 @@ body{
         }
 
         .btn-add-item {
-            background-color: $color-4;
+            background-color: var(--fourth-color);
             border: none;
             outline: none;
             padding: 10px 20px;
@@ -480,7 +487,7 @@ body{
     font-size: 19px;
     text-align: right;
     letter-spacing: 1.5px;
-    color: white;
+    color: var(--fourth-color);
 }
 
 .input__expense-name{
@@ -490,7 +497,7 @@ body{
     background-color: transparent;
     font-size: 19px;
     letter-spacing: 1.5px;
-    color: white;
+    color: var(--fourth-color);
     margin-bottom: 25px;
 }
 
@@ -501,7 +508,7 @@ body{
     background-color: transparent;
     font-size: 19px;
     letter-spacing: 1.5px;
-    color: white;
+    color: var(--fourth-color);
     margin-bottom: 50px;
 }
 
@@ -512,7 +519,7 @@ body{
     background-color: transparent;
     font-size: 19px;
     letter-spacing: 1.5px;
-    color: white;
+    color: var(--fourth-color);
     margin-bottom: 25px;
 }
 
